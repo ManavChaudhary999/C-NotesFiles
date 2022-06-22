@@ -53,8 +53,8 @@ class Entity()
 		}
 };
 
-//let say we want only static fucn to be used by class members and we don't want its instances to be created 
-// then we dont need constructor, So there are two ways to delte default constructor
+// Lets say we want only static fucn to be used by class members and we don't want its instances to be created 
+// then we dont need constructor, So there are two ways to delete default constructor
 // make private constructor or delete default constructor
 class Log()
 {
@@ -78,5 +78,5 @@ void MainConstructor()
 	//Entity e2(5, 10);
 
 	Log::Write(); // access of static method without creating multiple instances
-	//Log l; //Now this will not work coz we deleted the default constructor
+	//Log abc; or Log abc = new Log(); //Now this will not work coz we deleted the default constructor
 }

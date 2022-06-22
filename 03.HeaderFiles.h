@@ -8,13 +8,13 @@
 // And lets say some other cpp file named - manav.cpp
 /*{
 	// This file inlcude both Headerfiles.h and abc.h
-	// But abc.h already include headerfiles.h so this file have
-	// 2 copy of headerfile.h, To remove this copying we use #pragma once
 	#include "3.HeaderFiles.h"
 	#include "abc.h"
+	// But abc.h already include headerfiles.h so this file have
+	// 2 copy of headerfile.h, To remove this double copying we use #pragma once
 }*/
 
 #pragma once
 
 void Log(const char* message);
-void InitLog()
+void InitLog();

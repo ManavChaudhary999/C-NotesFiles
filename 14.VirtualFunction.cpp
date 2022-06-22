@@ -1,7 +1,7 @@
 // Virtual Function allow us to ovveride the function
 // It is used in the concept of inheritance.
 // Virtual function of base class can be ovverided in sub class.
-// Keyword: virtual and ovveride(not required but use for conviction).
+// Keyword: virtual(required) and ovveride(not required but use for conviction).
 // How it Works?
 // Ans - virtual keyword mark the function of base class in V-table(records).
 // ovveride keyword check the function of sub-class in V-table so that it can match.
@@ -33,15 +33,16 @@ public:
 
 int main() 
 {
-	Entity* e;
+	Entity* e = new Entity();
 	e->Print(); // Print "Entity"
 
-	Player* p; // It is also a entity type
+	Player* p = new Player(); // It is also a entity type
 	p->Name = "Manav";
-	p2->Print(); // inherited Function of Entity which modified in Player
+	p2->Print(); // Print "Manav", it is a seprate function of Player Class not Entity Class
 
-	Entity* e2 = p; // p is also a entity type
-	e2->Print(); // Print "Entity"
+	Entity* entity = new Player(); // Or Also
+	Entity* entity = p;
+	e2->Print(); // Print "Entity" not "Manav"
 }*/
 
 // Using Virtual Function
@@ -72,7 +73,7 @@ int main()
 
 	Player* p; // It is also a entity type
 	p->Name = "Manav";
-	p2->Print(); // inherited virtual Function of Entity which is override in Player
+	p2->Print(); // Print "Manav", it is ovverided in Player Class
 
 	Entity* e2 = p; // p is also a entity type
 	e2->Print(); // Print "Manav" because overrided in player.

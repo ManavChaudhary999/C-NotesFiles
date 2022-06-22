@@ -20,16 +20,21 @@ public:
 
 int main() 
 {
-	//There are three ways to instantiate object
+	// Objects are instantiated in either stack memory or heap
+	//There are three ways to instantiate object in stack memory
 	// 1. Stack Memory Instantiation
 	Entity entity1;
 	std::cout << entity.GetName() << std::endl;
 	Entity entity2("Manav");
-	std::cout << entity3.GetName() << std::endl;
+	std::cout << entity2.GetName() << std::endl;
 
 	// 2. Stack memory Instantiation
 	Entity entity3 = Entity("Manav");
 	std::cout << entity3.GetName() << std::endl;
+	
+	// 3. Stack memory Instantiation
+	Entity entity4 = {"Manav"};
+	std::cout << entity4.GetName() << std::endl;
 
 	// Now There is a problem with stack memory instantiation as below
 	Entity* e;
@@ -39,9 +44,9 @@ int main()
 		std::cout << (*e).GetName() << std::endl; // O/p - Manav
 	}
 	// Here the scope of e2 ends so e will still refrence to e2 address but not value of e2
-	std::cout << (*e).GetName() << std::endl; // O/p - Null
+	std::cout << (*e).GetName() << std::endl; // O/p - Null or Empty String
 
-	// 3. Heap Memory Instantiation
+	// Heap Memory Instantiation
 	Entity* entity4 = new Entity("Manav");
 
 	// Now that above problem will be solved as heap memory intantiation means object will remain takes memory untill

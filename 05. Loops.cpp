@@ -7,14 +7,19 @@ int main()
 		std::cout << "Hello World" << std::endl;
 	}
 
+	// This will also print 5 times
 	int j = 0;
 	bool condition = true;
-	// This will also print 5 times
 	for (; condition; ) 
 	{
 		std::cout << "Hello World" << std::endl;
-		i++;
-		if (!(i < 5))
+		j++;
+		if (!(j < 5)) // j >= 5
 			condition = false;
 	}
+
+	// another for loop
+	int values[5];
+	for (int value : values)
+		std::cout << value << std::endl;
 }

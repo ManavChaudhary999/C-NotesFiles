@@ -23,24 +23,26 @@ explicit void Printable(const Entity& e) {
 }
 
 int main() 
-{	// before explicit
-
-	Entity e("manav"); // initialization with constructor
-	Entity e2 = "manav"; // This is implicit conversion, same as above
+{	
+	// before explicit
 
 	Entity entity(18); // initialization with constructor
 	Entity entity2 = 18; // This is implicit conversion, same as above
+	Entity entity3 = Entity(18); // without conversion
 
-	Printable(9); // This will work because compiler will automatic convert this impicitly and pass as an parameter of constructor
-	Printable("manav"); // This will not work because we are passing const char* so first compiler has to convert const char* into 
+	Entity e("manav"); // initialization with constructor
+	Entity e2 = Entity("manav"); // without conversion
+	Entity e2 = "Manav";// This will not work because we are passing const char* so first compiler has to convert const char* into 
 						// string then in Entity, So here two conversion require but only one can be done
+	Entity e2 = (std::string)"manav"; // This will work coz we are manually converting it into string so compiler has to done only one conversion from string to class contructor.
 
-	Printable(std::string("Manav")); // This will work coz we are manually converting it into string so compiler has to done only one conversion from string to class contructor.
-	Printable(Entity("manav")); // This will also work
+	Printable(9); // This will work because compiler will automatically convert this impicitly and pass as an parameter of constructor
+	Printable("manav");  // not work 2 conversion required
+	Printable(std::string("Manav")); // work only one conversion
 
 	// After Explicit
 
-	Entity e3 = "manav"; // not work cause implicit conversion not allowed
+	Entity e3 = (std::string)"manav"; // not work cause implicit conversion not allowed
 	Entity e3 = Entity("Manav"); // Will work cause manually converting
 
 	Entity entity3 = 18; // not work cause implicit conversion not allowed

@@ -37,14 +37,16 @@ int* CreateArray()
 int main() 
 {
 	{
-		Entity e; // Here Entity Created will print as we created entity instance here
+		Entity e; // Here Entity Created will print as we created entity instance here in stack memory.
 		
-		Entity e1 = new Entity(); // Here Entity Created will print as we created instance e1 here
+		Entity e1 = new Entity(); // Here Entity Created will print as we created instance e1 here in heap memory.
 	
 		ScopedPtr e2 = new Entity(); // here although we are using new but ScopedPtr is created in Stack memeory and new Entity() is basically a implicit conversion.
 	}
 
 	// here Entity destroyed will print for instance e as e created and stored in stack so out of scope it is deleted.
+	// and Entity destroyed will print for ScopedPtr instance e2 as e2 created and stored in stack so out of scope it is deleted.
+
 	// But here Entity destroyed will not print for instance e1 as e1 created and stored in heap so it will not be deleted.
 	delete e1; // we have to manually delete the e1.
 	std::cin.get();

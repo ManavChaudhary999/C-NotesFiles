@@ -1,4 +1,4 @@
-// Inhertiance is used to derive methods or functionality of base class into sub-class
+// Inhertiance is used to derive methods or functionality of base class into sub-class(derived class)
 // Sub Class can inhertis only public and protected members of Base class.
 // It is used to remove code dulpication.
 // How?
@@ -6,8 +6,8 @@
 // those functionality again and again.
 
 // Note- When sub class extends base class then it become of both types - sub class type and base class type
-//1. Sub class :(inherits) public Base class means sub inherting base public and protected data members and making them public in its own class
-//2. Sub class :(inherits) private Base class means Sub inherting Base public and protected data members and making them private in its own class
+//1. Sub class : public Base class means sub inherting base public and protected data members and making them public in its own class
+//2. Sub class : private Base class means Sub inherting Base public and protected data members and making them private in its own class
 
 #include <iostream>
 #include<string>
@@ -45,9 +45,14 @@ class AI : public Npc {};
 
 void MainInherit() 
 {
-	Player p; // It is also a entity and printable type
+	Player p; // It is also a Entity and Player type
 	p.Move(10, 20); // Entity move function in player
 	p.Print();
+
+	Entity e = new Player(); // Player is also Entity type
+
+	// Not Gonna Work
+	Player player = new Entity(); // Entity is not Player Type
 
 	AI a;
 	//a.X = 5; // this will not work as X is private in Npc

@@ -6,8 +6,13 @@
 
 // Operator Overloading can be done in two places - 1. class method , 2. non-class method(function)
 
-// Operator overloading method of class member must have either 0 or 1 argument.
-// Operator overloading function of non-class must have either class as an argument or enum as a return type.
+//1. Operator overloading method of class member must have either 0 or 1 argument because object will call method which automatically
+// become one argument and other argument will be one that is passed by us or nothing.
+// 
+//2. Operator overloading function of non-class must have two argument(one argument must be a class or struct object)
+
+ //NOTE- If there are Operator Overloading method and Operator Overloading Function with same name and same return type and same 
+// arguments then Class Method will be called not function.
 
 #include<iostream>
 
@@ -64,7 +69,7 @@ int main()
 	Vector2 powerup(2.0f, 2.0f);
 
 	// Lets say we want to powerup our speed and then adding speed to position, So
-	Vector2 result = position.Add(speed.Multiply(powerup)); // Now this is what we have done in java
+	Vector2 result = position.Add(speed.Multiply(powerup)); // Now this is what we have done in java, will become complex if many more methods are used.
 	
 	std::cout << result << std::endl; //This will not work coz cout doesn't know how to print Vector2 struct
 	

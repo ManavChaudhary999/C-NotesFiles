@@ -17,12 +17,12 @@ std::ostream& operator<<(std::ostream& stream, const Vertex& vertex)
 	return stream;
 }
 
-// Also if u want dynamic array in function then always pass by refrence
+// Also if u want dynamic array in function then always pass by refrence to avoid copying
 void Function(const std::vector<Vertex>& vertices) {}
 
 int main() 
 {
-	Vertex vertices = new Vertex[5]; // here it is a static array as we cant increase the size of vertices;
+	Vertex vertices = new Vertex[5]; // Static array as we cant increase the size of vertices;
 
 	std::vector<Vertex> vertices; // dynamic array
 

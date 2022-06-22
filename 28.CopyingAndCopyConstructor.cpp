@@ -107,13 +107,13 @@ int main()
 	// destructor. What destructor is doing that it is deleting m_Buffer[].
 	// But as we are shallow copying first class into second, second class gonna copy first class members inlcuing m_Buffer which is a 
 	// pointer so both classes are pointing same memory address of m_Buffer.
-	// if first class destructor called first resulting deleting m_Buffer[] and the second class destructor called then it will also try 
+	// if first class destructor called first resulting deleting m_Buffer[] and the second class destructor called then it will also try
 	// deleting m_Buffer which is already deleted hence error occured.
 
 	// Deep Copy (to fix above problem we write copy constructor)
 	{
 		String first = "Manav";
-		String second = first; // copied string will be print
+		String second = first; // Calling Copying Constructor not Parameter Constructor, copied string will be print
 		second[2] = 't'; // only change for second class
 
 		std::cout << first << std::endl; // o/p - Manav

@@ -6,7 +6,7 @@ class Entity {
 public:
 	int x;
 
-	void Print() const { std::cout << "Hellod World" << std::endl; }
+	void Print() const { std::cout << "Hello World" << std::endl; }
 };
 
 class ScopedPtr 

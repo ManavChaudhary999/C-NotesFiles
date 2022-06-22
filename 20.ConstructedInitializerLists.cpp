@@ -43,7 +43,7 @@ public:
 	}*/
 
 	Entity(const std::string& name)
-		: m_Name(name)
+		: m_Score(0), m_Name(name), ex(Example(8));
 	{
 	}
 

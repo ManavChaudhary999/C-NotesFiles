@@ -16,11 +16,11 @@
 
 void Increament(int* val) // pass by address
 {
-	(*val)++; // one way By Pointer
+	(*val)++; // dereferencing than increamenting
 }
 void Increament2(int& val) // pass by reference
 {
-	val++; // other way By Refrence
+	val++;
 }
 
 class Entity {};
@@ -29,17 +29,16 @@ void MainPointer()
 {
 	// NOTE : Refrence or other pointer has to be assigned during pointer initializing, if not use heap address like (new int) 
 	// NOTE: *varname is used to access the value of pointer var or can say that defrence the pointer var
-	// NOTE: If we use pointer var without * (like - varname) it will points or give the address of other var not the other var value
+	// NOTE: If we use pointer var without * (like - varname) it will points or give the address of var not the actual var value
 	// NOTE: &is used to refrence or points the address of normal var
 
 	//here p is a pointer var which stores the address of other n.
 	int n = 5;
 	int* p = &n; // store or points the address of n
-	
-	int* j = new int; // new address if dont want assigned initialization.
-	int* x, *y, *z;// To initialize multiple pointer
-
 	*p = 3;
+	
+	int* j = new int; // new address
+	int* x, *y, *z;// To initialize multiple pointer
 
 	// print the same address
 	LOG(p);
@@ -55,15 +54,15 @@ void MainPointer()
 	Entity e;
 	Entity* e2 = &e;
 	// to access the value of e2 pointer we need to derefrence it
-	(*e2).(any class_method); // normal derefrence
+	(*e2).(class_method); // normal derefrence
 	Entity& entity = *e2; // another way of derefrence
 	e2->(class_method); // or using arrow operator
 
 	// Double Pointer
 	
 	int* a = new int; // new address points to a but a have its own address because it is also a var.
-	*a = 9; // dereferencing a and setting its address value.
-	int* c = a; // pointing or storing the value of a which is some address a points to.
+	*a = 9; // dereferencing a and setting its data value.
+	int* c = a; // pointing or storing the value of a (which is some address a points to).
 	int** b = &a; // storing actual address of a by using double pointer.
 
 	std::cout << "a pointer address: " << a << std::endl;
@@ -73,4 +72,7 @@ void MainPointer()
 	std::cout << "b pointing a's own address: " << b << std::endl;
 	
 	std::cout << "b's own address: " << &b << std::endl;
+
+	std::cout << "a pointer address value: " << *a << std::endl;
+	std::cout << "b pointer address to pointer address value: " << **b << std::endl;
 }

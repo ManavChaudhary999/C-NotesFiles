@@ -16,7 +16,7 @@ public:
 	{
 		// When we use this keyword then thats what it means
 		Entity* e = this; // this is a pointer
-		e->x = x; // -> arrow operator are used by pointer var
+		e->x = x; // -> arrow operator are used for pointer class var to access data properties
 
 		// This is actually how we use
 		this->x = x; // same as above two line
@@ -32,7 +32,7 @@ public:
 	int GetX() const  
 	{
 		// Other Useful case of this
-		// Entity* e2 = this; // can't be done cause not const var aren't allowed
+		// Entity* e2 = this; // can't be done cause non const var aren't allowed
 		const Entity* e = this; // only const allowed
 		e->x = x;// can't be done as e is const
 		return x;
